@@ -1,0 +1,25 @@
+# Pins use lower bounds so pip can resolve wheels for your Python version
+# (this project was verified on Python 3.14, which needs the newer builds).
+
+# Web framework + ASGI server
+fastapi>=0.115.6
+uvicorn[standard]>=0.34.0
+
+# ORM + database
+SQLAlchemy>=2.0.36
+
+# Settings & validation
+pydantic>=2.11
+pydantic-settings>=2.7.1
+email-validator>=2.2.0
+
+# Auth: password hashing (bcrypt) + JWT
+bcrypt>=4.2.1
+python-jose[cryptography]>=3.3.0
+python-multipart>=0.0.20
+
+# AI search (Groq is OpenAI-API compatible)
+openai>=1.59.6
+
+# Load .env files
+python-dotenv>=1.0.1

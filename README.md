@@ -132,25 +132,21 @@ Request → Router (HTTP, auth, status codes)
         → SQLite
 ```
 
-### AI search flow
+### End-to-end workflow
 
 ```mermaid
-sequenceDiagram
-  participant C as Customer
-  participant API as /api/search
-  participant AI as ai_search service
-  participant G as Groq
-  participant DB as SQLite
-
-  C->>API: "bus to Bangalore tomorrow morning, AC"
-  API->>AI: interpret(query)
-  AI->>G: extract filters (JSON)
-  alt Groq unavailable / no key
-    AI->>AI: rule-based parser (fallback)
-  end
-  AI->>DB: query bookable buses by route
-  AI->>AI: score & rank (date/time/type/price)
-  API-->>C: interpreted filters + ranked buses
+flowchart TD
+  A[Customer types travel need<br/>in plain English] --> B{AI available?}
+  B -- yes --> C[Groq extracts filters<br/>origin, dest, date, type, price]
+  B -- no --> D[Rule-based parser<br/>fallback]
+  C --> E[Query available buses<br/>+ rank by relevance]
+  D --> E
+  E --> F[Show ranked results]
+  F --> G[Customer picks a bus<br/>+ enters passenger details]
+  G --> H{Enough seats?}
+  H -- yes --> I[Confirm booking<br/>& reduce seats in one transaction]
+  H -- no --> J[Reject with 400<br/>&quot;Bus full&quot;]
+  I --> K[Customer can cancel<br/>&rarr; seats released back]
 ```
 
 ---

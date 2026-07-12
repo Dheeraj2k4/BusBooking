@@ -1,4 +1,4 @@
-# Backend — KPi-Tech Bus Ticketing API
+# Backend — BusBooking API
 
 FastAPI service providing auth, bus management, booking, AI search, and admin
 analytics. See the [root README](../README.md) for the full architecture and

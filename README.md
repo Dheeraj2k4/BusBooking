@@ -1,11 +1,12 @@
-# KPi-Tech Bus Ticketing System — with AI-Powered Search
+# BusBooking — AI-Powered Bus Ticketing System
 
 A full-stack bus ticketing platform with two roles (**Admin** and **Customer**)
 and an **AI natural-language search**: a customer can type
 _"I need a bus from Hyderabad to Bangalore tomorrow morning, preferably AC"_
 and the system interprets it and returns matching, ranked, bookable buses.
 
-> Built for the KPi-Tech Services AI Software Engineer assignment.
+> A full-stack bus ticketing application with role-based access and an AI-driven
+> natural-language search.
 
 ---
 
@@ -157,7 +158,7 @@ sequenceDiagram
 ## 5. Project structure
 
 ```
-kpiTechProject/
+BusBooking/
 ├── backend/
 │   ├── app/
 │   │   ├── main.py              # FastAPI app, CORS, router mounting

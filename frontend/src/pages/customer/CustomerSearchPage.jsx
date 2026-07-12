@@ -128,6 +128,7 @@ export default function CustomerSearchPage() {
         <div className="ai-panel">
           <div className="ai-panel-head">
             <span className="ai-badge">AI understood</span>
+            <span className="ai-source">via {interpreted.source}</span>
           </div>
           <div className="ai-filters">
             <Filter label="From" value={interpreted.origin} />

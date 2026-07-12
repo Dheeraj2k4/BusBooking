@@ -34,10 +34,10 @@ export default function LoginPage() {
   // One-click fill for the demo accounts.
   const fillDemo = (role) => {
     if (role === 'admin') {
-      setEmail('admin@kpitech.com')
+      setEmail('admin@busbooking.com')
       setPassword('admin123')
     } else {
-      setEmail('customer@kpitech.com')
+      setEmail('customer@busbooking.com')
       setPassword('customer123')
     }
   }

@@ -41,7 +41,60 @@ and the system interprets it and returns matching, ranked, bookable buses.
 
 ---
 
-## 3. Architecture
+## 3. Screenshots
+
+### Login
+![Login page](image.png)
+A single entry point for both roles. Includes one-click demo fill for the Admin
+and Customer accounts; on success, users are routed to their role's home screen.
+
+### Admin — Dashboard
+![Admin dashboard](image-1.png)
+Live analytics: bookings today, revenue (today + total), and active buses, plus
+buses ranked by **occupancy rate** and **route-wise demand**.
+
+### Admin — Manage Buses
+![Manage buses](image-2.png)
+Full CRUD table of buses showing route, operator, type, schedule, seats, price
+and status (Active / Off-sale).
+
+### Admin — Add Bus
+![Add bus](image-3.png)
+Modal form to create a bus (route, timings, type, seats, price, availability)
+with client- and server-side validation.
+
+### Admin — Edit Bus
+![Edit bus](image-4.png)
+The same form pre-filled for updates; seat totals adjust safely against
+already-booked seats.
+
+### Customer — Search
+![Customer search](image-5.png)
+Structured trip search (boarding, drop-off, date) plus the **AI natural-language
+bar**, refined by filters (bus type, price range, operator).
+
+### Customer — AI Search Results
+![AI search results](image-6.png)
+The "AI understood" panel shows the filters the AI extracted; matching buses are
+**ranked by relevance**, each with the reasons it matched.
+
+### Customer — Booking
+![Booking screen](image-9.png)
+Passenger details and seat count; the total updates live, and confirming
+**decreases seat availability** immediately.
+
+### Customer — My Bookings
+![My bookings](image-7.png)
+The customer's booking history with status; confirmed bookings can be cancelled.
+
+### Customer — Cancelled Booking
+![Cancelled booking](image-10.png)
+Cancelling flips the status to **Cancelled** and **releases the seats** back to
+the bus.
+
+---
+
+## 4. Architecture
 
 ```mermaid
 flowchart LR
@@ -101,7 +154,7 @@ sequenceDiagram
 
 ---
 
-## 4. Project structure
+## 5. Project structure
 
 ```
 kpiTechProject/
@@ -131,7 +184,7 @@ kpiTechProject/
 
 ---
 
-## 5. Setup & run
+## 6. Setup & run
 
 **Prerequisites:** Python 3.11+ and Node 18+.
 
@@ -160,12 +213,12 @@ npm run dev                           # http://localhost:5173
 
 | Role     | Email                   | Password     |
 |----------|-------------------------|--------------|
-| Admin    | `admin@kpitech.com`     | `admin123`   |
-| Customer | `customer@kpitech.com`  | `customer123`|
+| Admin    | `admin@busbooking.com`     | `admin123`   |
+| Customer | `customer@busbooking.com`  | `customer123`|
 
 ---
 
-## 6. Enabling real Groq AI (optional)
+## 7. Enabling real Groq AI (optional)
 
 The app runs fully without any API key using the rule-based parser. To use Groq,
 put your key (free at https://console.groq.com) in `backend/.env`:
@@ -180,7 +233,7 @@ can see which path was used — the UI shows it in the "AI understood" panel.
 
 ---
 
-## 7. Key design decisions
+## 8. Key design decisions
 
 - **Live `available_seats` counter on the bus.** Instead of counting bookings on
   every request, we keep a running count that is decremented on booking and
@@ -200,7 +253,7 @@ can see which path was used — the UI shows it in the "AI understood" panel.
 
 ---
 
-## 8. Assumptions
+## 9. Assumptions
 
 - Public sign-up creates **customers** only; the admin account is provisioned by
   the seed script (a realistic pattern for an internal admin).
@@ -213,7 +266,7 @@ can see which path was used — the UI shows it in the "AI understood" panel.
 
 ---
 
-## 9. What I'd improve with more time
+## 10. What I'd improve with more time
 
 - Alembic migrations instead of `create_all`.
 - Automated tests (pytest for the booking/overbooking rules and the ranking).

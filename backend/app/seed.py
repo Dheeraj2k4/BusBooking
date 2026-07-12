@@ -21,9 +21,9 @@ from app.models.enums import BusType, UserRole
 from app.models.user import User
 
 # Demo credentials (documented in the README so the panel can log in).
-ADMIN_EMAIL = "admin@kpitech.com"
+ADMIN_EMAIL = "admin@busbooking.com"
 ADMIN_PASSWORD = "admin123"
-CUSTOMER_EMAIL = "customer@kpitech.com"
+CUSTOMER_EMAIL = "customer@busbooking.com"
 CUSTOMER_PASSWORD = "customer123"
 
 
